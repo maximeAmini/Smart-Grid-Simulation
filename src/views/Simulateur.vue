@@ -1,24 +1,23 @@
 <template>
   <div class="home">
       <div class="container">  
-        <Compteur v-for='form in forms' v-bind:key='form.name' :form='form'/>
+        <Maison v-for='form in forms' v-bind:key='form.name' :form='form'/>
       </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Compteur from '@/components/Compteur.vue'
+import Maison from '@/components/maison/Maison.vue'
 
 export default {
   name: 'Home',
   data() {
-      return {
-          forms: [{id_cmp:'01', index:78200},{id_cmp:'02', index:8200},{id_cmp:'03', index:8200},{id_cmp:'04', index:8200}],
-        }
+    return {
+      forms: [{id_cmp:'01', index:78200}],
+    }
   },
   components: {
-    Compteur
+    Maison
   }
 }
 </script>

@@ -65,10 +65,14 @@ export default {
             }).catch((error) => {
                console.log(error)
             })
-            this.arret()
+            if(type==1){
+                this.arret()
+            }
         },
         arret(){
             clearInterval(this.timer)
+            console.log("fait")
+            this.$emit('couper')
         }
     },
     
@@ -90,7 +94,7 @@ export default {
             //envoyé les données de consomation
             setInterval(function () {
                 this.add()
-            }.bind(this), 3000)
+            }.bind(this), 300000)
     },
 }
 </script>

@@ -1,14 +1,27 @@
 <template>
-    <Nav />
+    <Menu @open="close"/>
+    <Nav :isClose="this.isClose"  @open="close"/>
     <router-view class="page"/>
 </template>
 
 <script>
-import Nav from '@/components/Nav.vue'
+import Nav from '@/components/menu/Nav.vue'
+import Menu from '@/components/menu/Menu.vue'
 
 export default{
     components: {
-        Nav
+        Nav,
+        Menu
+    },
+    data() {
+        return {
+            isClose: false
+        }
+    },
+    methods:{
+        close(){
+            this.isClose= !this.isClose
+        }
     }
 }
 </script>
@@ -28,15 +41,13 @@ export default{
 }
 
 .page{
-    margin-left:20%;
-    padding-top:20px;
+    margin-left:20px;
+    padding-top:11vh;
     padding-left:20px;
     padding-right:20px;
 }
 
 @media screen and (max-width: 768px) {
-    .page{
-        margin-left:10vh;
-    }
+   
 }
 </style>
