@@ -105,10 +105,10 @@ export default {
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
-        width: 40%;
+        width: 500px;
         padding: 20px;
         margin: 5px;
-        background-color: #d4d257;
+        border: 1px solid black;
         border-radius: 1.75rem;
         text-align: center;
     }
@@ -118,7 +118,7 @@ export default {
         text-shadow: 1px 1px 1px #111;
     }
     .infos{
-        background-color: #bbbbbd;
+        background-color: #eaeaf5;
         border-radius: 1.75rem;
         width: 80%;
         margin-left: 10%;
@@ -128,7 +128,8 @@ export default {
     }
     h3{
         padding:10px;
-        background-color: #2a6015;
+        background-color: #0f2706;
+        color:rgb(207, 199, 199);
         width: 50%;
         margin-left: 25%;
         margin-top:60px;

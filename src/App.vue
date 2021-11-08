@@ -42,7 +42,7 @@ export default{
 
 .page{
     margin-left:20px;
-    padding-top:11vh;
+    padding-top:15vh;
     padding-left:20px;
     padding-right:20px;
 }

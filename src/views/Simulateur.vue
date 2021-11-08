@@ -13,7 +13,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      forms: [{id_cmp:'01', index:78200}],
+      forms: [{id_cmp:'01', index:78200},{id_cmp:'01', index:78200},{id_cmp:'01', index:78200},{id_cmp:'01', index:78200}],
     }
   },
   components: {

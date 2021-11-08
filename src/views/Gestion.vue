@@ -1,19 +1,27 @@
 <template>
     <div class="page1">
-        <h1>Gerer les clients</h1>
+        <div class='title'>
+            <h1> <i class="icone fas fa-database"></i> Gerer les clients</h1>
+            <input type="search" placeholder="Recherche..." />
+        </div>
         <div class="container">
             <ul class="responsive-table">
                 <li class="table-header">
                     <div class="col col-1">Client Id</div>
                     <div class="col col-2">Nom </div>
-                    <div class="col col-3">Adress</div>
-                    <div class="col col-4">Telephone</div>
+                    <div class="col col-4">Adress</div>
+                    <div class="col col-3">Telephone</div>
+                    <div class="col col-1"></div>
                 </li>
                 <li class="table-row" v-for='form in forms' v-bind:key='form.name'>
-                    <div class="col col-1" data-label="Job Id">{{form.id_client}}</div>
-                    <div class="col col-2" data-label="Customer Name">{{form.nom}} {{form.prenom}}</div>
-                    <div class="col col-3" data-label="Amount">{{form.adress}}</div>
-                    <div class="col col-4" data-label="Payment Status">{{form.tel}}</div>
+                    <div class="col col-1" data-label="Client Id">{{form.id_client}}</div>
+                    <div class="col col-2" data-label="Nom">{{form.nom}} {{form.prenom}}</div>
+                    <div class="col col-4" data-label="Adress">{{form.adress}}</div>
+                    <div class="col col-3" data-label="Telephone">0{{form.tel}}</div>
+                    <div class="col col-1" data-label="">
+                        <i class="fa fa-exclamation-circle" style="color:red" aria-hidden="true" v-if="errors"></i>
+                        <i class="fa fa-check-circle" style="color:green" aria-hidden="true" v-if="!errors" ></i>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -31,7 +39,8 @@
        data() {
            return {
                forms: 0,
-               done: true
+               done: true,
+               errors:true
             }
         },
         components: {
@@ -65,8 +74,24 @@
         }
     }
 </script>
+<style scoped>
 
+</style>
 <style lang="scss" scoped>
+
+.title {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.title input{
+        padding: 10px 70px 10px 32px;
+        font-size: 18px;
+        color: #666;
+        border-radius: 34px;
+        margin-left: auto;
+}
+
 .loader-container{
     display: flex;
     justify-content: center;
@@ -74,21 +99,11 @@
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 10px;
     padding-right: 10px;
-}
-
-h2 {
-    font-size: 26px;
-    margin: 20px 0;
-    text-align: center;
-
-    small {
-        font-size: 0.5em;
-    }
 }
 
 .responsive-table {
@@ -158,5 +173,15 @@ h2 {
             }
         }
     }
+}
+
+@media screen and (max-width: 768px) {
+  .title input{
+        padding: 15px;
+        font-size: 14px;
+        color: #666;
+        border-radius: 34px;
+        margin-left: auto;
+} 
 }
 </style>

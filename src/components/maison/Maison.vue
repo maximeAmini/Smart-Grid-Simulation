@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .maison{
-    width: 100%;
+    width: 50%;
     height: 100vh;
     display: flex;
     align-items: center;
