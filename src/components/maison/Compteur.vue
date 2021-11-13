@@ -115,7 +115,11 @@ export default {
     h1{
         color: #d4d257;
         margin-top:10px;
-        text-shadow: 1px 1px 1px #111;
+        font-weight: bolder;
+        font-size: 1.9rem;
+        background: linear-gradient(to left, #2c3e50, #d4d257);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .infos{
         background-color: #eaeaf5;

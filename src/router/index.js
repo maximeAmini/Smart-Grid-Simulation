@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Tabbord from '../views/Tabbord.vue'
 import Simulateur from '../views/Simulateur.vue'
 import Gestion from '../views/Gestion.vue'
+import Client from '../views/Client.vue'
+import Data from '../views/Data.vue'
 
 const routes = [
     {
@@ -18,6 +20,16 @@ const routes = [
         path: '/gestion',
         name: 'Gestion',
         component: Gestion
+    },
+    {
+        path: '/gestion/:id',
+        name: 'Client',
+        component: Client
+    },
+    {
+        path: '/capteur/:id_capteur',
+        name: 'Capteur',
+        component: Data
     }
 ]
 

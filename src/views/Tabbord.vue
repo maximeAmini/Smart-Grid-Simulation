@@ -6,7 +6,7 @@
 </template>
 
 <script>
-   import Ampoule from '@/components/maison/Ampoule.vue'
+   import Ampoule from '@/components/Data.vue'
    export default {
        name: "Suivie",
         components: {

@@ -7,71 +7,29 @@
         <div class="container">
             <ul class="responsive-table">
                 <li class="table-header">
-                    <div class="col col-1">Client Id</div>
-                    <div class="col col-2">Nom </div>
-                    <div class="col col-4">Adress</div>
-                    <div class="col col-3">Telephone</div>
-                    <div class="col col-1"></div>
+                    <div class="col col-1">id_client</div>
+                    <div class="col col-2">index </div>
+                    <div class="col col-4">Date</div>
                 </li>
                 <li class="table-row" v-for='form in forms' v-bind:key='form.name'>
-                    <div class="col col-1" data-label="Client Id">{{form.id_client}}</div>
-                    <div class="col col-2" data-label="Nom"><router-link class="link" :to='"/gestion/"+form.id_client'>{{form.nom}} {{form.prenom}}</router-link></div>
-                    <div class="col col-4" data-label="Adress">{{form.adress}}</div>
-                    <div class="col col-3" data-label="Telephone">0{{form.tel}}</div>
-                    <div class="col col-1" data-label="">
-                        <i class="fa fa-exclamation-circle" style="color:red" aria-hidden="true" v-if="errors"></i>
-                        <i class="fa fa-check-circle" style="color:green" aria-hidden="true" v-if="!errors" ></i>
-                    </div>
+                    <div class="col col-1" data-label="id_client">{{form.id_capteur}}</div>
+                    <div class="col col-2" data-label="index">{{form.index}}</div>
+                    <div class="col col-4" data-label="Date">{{form.date}}</div>
                 </li>
             </ul>
         </div>
-
-        <Loader v-if="this.done" />
     </div>
 </template>
 
 <script>
-   import axios from 'axios'
-   import Loader from '@/components/Loader.vue'
-   export default {
+   export default 
+   {
        name: "Suivie",
-       data() {
-           return {
-               forms: 0,
-               done: true,
-               errors:true
-            }
-        },
-        components: {
-            Loader,
-        },
-        methods:{
-            newdate(n){
-                var d = new Date(n)
-                var date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
-                var hours = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-                var fullDate = date+' '+hours;
-                return fullDate;
-
-            }
-        },
-        created() {
-            axios.get('http://localhost:4000/client/getAll/').then((res) => {
-                if (res.status == 200) {
-                    this.forms = res.data
-                    /*this.forms.sort(function(a,b){
-                        var c = new Date(a.date);
-                        var d = new Date(b.date);
-                        return d-c;
-                    });*/
-                    this.done= false
-                }
-            })
-            .catch(err=>{
-                console.log(err)
-            })   
-        }
-    }
+       props: 
+       {
+        forms: Object
+       }
+    }      
 </script>
 <style scoped>
 

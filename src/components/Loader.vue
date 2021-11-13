@@ -1,8 +1,15 @@
 <template>
-    <div class="loader"></div>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
 </template>
 
 <style scoped>
+    .loader-container{
+        display: flex;
+        justify-content: center;
+        margin-top:10%;
+    }
     .loader{
         border: 6px solid #dee2e6;
         width: 40px;

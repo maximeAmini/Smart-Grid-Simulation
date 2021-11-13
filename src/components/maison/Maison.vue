@@ -31,11 +31,15 @@ export default {
 </script>
 
 <style scoped>
-.maison{
-    width: 50%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .maison{
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    @media screen and (max-width: 1032px) {
+        .maison{
+            width:100%;
+        }
+    }
 </style>

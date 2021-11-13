@@ -38,6 +38,10 @@ export default{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  /*background-image: url('assets/back.png');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;*/
 }
 
 .page{
@@ -45,9 +49,5 @@ export default{
     padding-top:15vh;
     padding-left:20px;
     padding-right:20px;
-}
-
-@media screen and (max-width: 768px) {
-   
 }
 </style>

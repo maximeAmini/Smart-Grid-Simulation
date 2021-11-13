@@ -1,10 +1,12 @@
 <template>
+<transition name="fade">
     <nav v-show="this.isClose">
         <div class="closeBtn"><span @click="$emit('open')"><i class="fa fa-times-circle" ></i></span></div>        
         <router-link class="link" to="/"><i class="icone fas fa-tachometer-alt"></i> <span class="text">Tableau de bord</span></router-link>
         <router-link class="link" to="/gestion"><i class="icone fas fa-database"></i> <span class="text">Gérer les données</span></router-link>
         <router-link class="link" to="/simulateur"><i class="icone fas fa-bolt"></i> <span class="text">Simulateur</span></router-link>
     </nav>
+</transition>
 </template>
 
 <script>
@@ -81,5 +83,13 @@ export default {
     .table-responsive {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transform: translateX(0);
+        transition: all .3s linear;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        transform: translateX(-100%);
+        transition: all .3s linear;
     }
 </style>
