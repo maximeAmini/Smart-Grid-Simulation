@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Informations sur le client</h1>
-        <Data />
+
         <Loader v-if="this.done1" />
     </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
     import axios from 'axios'
     import Loader from '@/components/Loader.vue'
-    import Data from '@/components/Data.vue'
+ 
     export default {
        name: "Client",
        data() {
@@ -25,7 +25,7 @@
         },
         components: {
             Loader,
-            Data
+          
         },
         methods:{
             getClient(){
