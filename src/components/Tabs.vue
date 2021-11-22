@@ -30,7 +30,7 @@
    export default {
 
        name: "Tabs",
-       props:{id_capteur: Integer},
+       props:{id: Number},
 
        data() {
 
@@ -74,7 +74,7 @@
 
         created() {
 
-            axios.get('http://localhost:4000/capteur/getOneC/'+this.id_capteur
+            axios.get('http://localhost:4000/capteur/getOneC/'+this.id
 
 ).then((res) => {
 
