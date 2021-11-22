@@ -1,9 +1,5 @@
 <template>
-    <div class="page1">
-        <div class='title'>
-            <h1> <i class="icone fas fa-database"></i> Gerer les clients</h1>
-            <input type="search" placeholder="Recherche..." />
-        </div>
+
         <div class="container">
             <ul class="responsive-table">
                 <li class="table-header">
@@ -18,19 +14,102 @@
                 </li>
             </ul>
         </div>
-    </div>
+  <Loader v-if="this.done" />
 </template>
 
 <script>
-   export default 
-   {
-       name: "Suivie",
-       props: 
-       {
-        forms: Object
-       }
-    }      
+
+   import axios from 'axios'
+
+   import Loader from '@/components/Loader.vue'
+
+   import Tabs from '@/components/Tabs.vue'
+
+   
+
+   export default {
+
+       name: "Tabs",
+       props:{id_capteur: Integer},
+
+       data() {
+
+           return {
+
+               forms: 0,
+
+               done: true,
+
+
+
+            }
+
+        },
+
+        components: {
+
+            Loader,
+
+            Tabs,
+
+        },
+
+        methods:{
+
+            newdate(n){
+
+                var d = new Date(n)
+
+                var date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
+
+                var hours = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+
+                var fullDate = date+' '+hours;
+
+                return fullDate;
+
+            }
+
+        },
+
+        created() {
+
+            axios.get('http://localhost:4000/capteur/getOneC/'+this.id_capteur
+
+).then((res) => {
+
+                if (res.status == 200) {
+
+                    this.forms = res.data
+
+                    /*this.forms.sort(function(a,b){
+
+                        var c = new Date(a.date);
+
+                        var d = new Date(b.date);
+
+                        return d-c;
+
+                    });*/
+
+                    this.done= false
+
+                }
+
+            })
+
+            .catch(err=>{
+
+                console.log(err)
+
+            })   
+
+        }
+
+    }
+
 </script>
+
 <style scoped>
 
 </style>
