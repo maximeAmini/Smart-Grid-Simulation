@@ -27,7 +27,7 @@ const routes = [
         component: Client
     },
     {
-        path: '/capteur/:id_capteur',
+        path: '/capteur/:id',
         name: 'Capteur',
         component: Data
     }
